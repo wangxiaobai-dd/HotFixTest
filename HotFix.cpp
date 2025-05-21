@@ -37,6 +37,7 @@ void HotFix::fixFunc(void* oldFunc, void* newFunc)
 
 				size_t page_size= getpagesize();
 				const int inst_len = sizeof(prefix) + sizeof(void *) + sizeof(postfix);
+				printf("inst_len:%d\n", inst_len);
 				char *align_point = (char *)oldFunc - ((uint64_t)(char *)oldFunc % page_size);
 				if (0 != mprotect(align_point, (char *)oldFunc - align_point + inst_len, PROT_READ | PROT_WRITE | PROT_EXEC)) 
 				{

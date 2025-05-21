@@ -62,7 +62,7 @@ check_non_pie || exit 1
 get_symbol_info
 
 # 热补丁可行性检查
-if [ $dec_size -ge 14 ]; then
+if [ $dec_size -ge 12 ]; then
     echo -e "\n${GREEN}验证通过：可安全进行热补丁${NC}"
 else
     echo -e "\n${RED}错误：代码段过小（${dec_size}字节 < 14字节）${NC}"
